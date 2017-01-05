@@ -24,7 +24,7 @@ var randomUser = {
   ]
 }
 
-function getPic(){
+function getUserObj(){
     return new Promise(function(resolve, reject) {
       $.ajax({
           url: 'https://randomuser.me/api/'
@@ -36,7 +36,7 @@ function getPic(){
 }
 
 
-getPic().then(function(dataResolved) {
+getUserObj().then(function(dataResolved) {
 
     var userHTML = $('#results-portal').html();
 
