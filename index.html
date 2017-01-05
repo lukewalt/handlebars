@@ -1,16 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Handlebars Exercise</title>
-</head>
-<body>
-  <h1>Here's a random user</h1>
+    <head>
+        <meta charset="UTF-8">
+        <title>Handlebars Exercise</title>
+        <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+        <link rel="stylesheet" href="main.css">
+    </head>
+    <body>
+        <h1>Here's a random user</h1>
 
-<!-- output div -->
+    <!-- output div -->
+    <div id="displayResults"></div>
 
-<!-- handlebars script -->
+    <!-- handlebars script -->
+    <script id="results-portal" type="text/x-handlebars-template">
+        <div>
+            <p>Name : {{results.0.name.title}} {{results.0.name.first}} {{results.0.name.last}}</p>
+            <p>Gender : {{results.0.gender}}</p>
+            <p>Location : {{results.0.location.street}} , {{results.0.location.city}} , {{results.0.location.state}} , {{results.0.location.postcode}}</p>
+            <p>Email : {{results.0.email}}</p>
+            <p>Picture : {{results.0.picture.medium}}</p>
+            <p>Nationality: {{results.0.nat}}</p>
 
-<!-- regular javascript scripts -->
-</body>
+        </div>
+
+    </script>
+
+
+    <!-- regular javascript scripts -->
+    <script src="/bower_components/handlebars/handlebars.js" type="text/javascript"></script>
+    <script src="/bower_components/jquery/dist/jquery.js" type="text/javascript"></script>
+    <script type="text/javascript" src="myJavascript.js"></script>
+    </body>
 </html>
