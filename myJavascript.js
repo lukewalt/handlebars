@@ -24,15 +24,30 @@ var randomUser = {
   ]
 }
 
+function getPic(){
+    return new Promise(function(resolve, reject) {
+      $.ajax({
+          url: 'https://randomuser.me/api/'
+      })
+      .then(function(dataResolved){
+          resolve(dataResolved)
+      })
+    })
+}
+
+
+getPic().then(function(dataResolved) {
+
+    var userHTML = $('#results-portal').html();
+
+    //handlebars step two: compile it into a template
+    var userTEMP = Handlebars.compile(userHTML);
+
+    //handlebars step three:render the HTML by passing the data to the template
+    var userOUTPUT = userTEMP(dataResolved);
+    console.log(userOUTPUT);
+
+    //handlebars step four: put the     complete HTML into the DOM
+    $('#displayResults').append(userOUTPUT);
+})
 //handlebars step one: grap the html from the script tag
-var userHTML = $('#results-portal').html();
-
-//handlebars step two: compile it into a template
-var userTEMP = Handlebars.compile(userHTML);
-
-//handlebars step three:render the HTML by passing the data to the template
-var userOUTPUT = userTEMP(randomUser);
-console.log(userOUTPUT);
-
-//handlebars step four: put the     complete HTML into the DOM
-$('#displayResults').append(userOUTPUT);
